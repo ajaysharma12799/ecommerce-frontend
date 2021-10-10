@@ -7,12 +7,30 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+a {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
 }
-.card {
+.home-screen {
+  display:flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.product-card {
   width: 20rem;
+}
+.form-signup,
+.form-signin {
+  height: 80vh;
 }

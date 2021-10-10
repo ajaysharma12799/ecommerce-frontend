@@ -1,23 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+import Rating from './Rating';
 
-const Product = ({ product }) => {
-    const { name, image, rating, numReviews, price } = product;
-
-    return (
-        <div className="card mb-2">
-            <img src={image} className="card-img-top" alt={name} />
-            <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <p className="card-text">{rating} from {numReviews} reviews</p>
-                <p className="card-text"><strong>{price} ₹</strong></p>
-            </div>
-        </div>
-    )
+const Product = ({product}) => {
+  return (
+    <Card className="rounded-0 product-card">
+      <CardMedia
+        component="img"
+        height="194"
+        image={product.image}
+        alt={product.name}
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+            <Link className="card-title" to={`/Product/${product._id}`}>{product.name}</Link>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" className="mt-1">
+            <Rating value={product.rating} text={`${product.numReviews} Reviews`} />
+        </Typography>
+        <Typography variant="body1" color="text.secondary" className="mt-1">
+            <strong>{product.price} ₹</strong>
+        </Typography>
+      </CardContent>
+    </Card>
+  );
 }
 
-Product.propTypes = {
-
-}
-
-export default Product
+export default Product;
